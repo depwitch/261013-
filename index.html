@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>한능검 1급 마스터 | 한국사능력검정시험 심화 합격 올인원 암기 & 진단</title>
+  <meta name="description" content="한국사능력검정시험 심화(1급) 단기 합격을 위한 시대별·연도별 초압축 암기, 스마트 통합검색, 1:1 맞춤형 AI 역사 튜터, 실전 레벨 테스트 진단 시스템">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top App Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-group" id="btnLogoHome">
+        <div class="logo-icon-wrapper">史</div>
+        <div class="logo-text">
+          <h1>한능검 1급 마스터</h1>
+          <p>PassHistory | 한국사능력검정시험 심화 올인원</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="dday-badge" id="ddayBadge">
+          <span class="pulse-dot"></span>
+          <span>제72회 한능검 D-18</span>
+        </div>
+        <button class="btn-icon" id="btnThemeToggle" title="테마 변경 (다크/라이트)">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Tab Bar -->
+  <nav class="nav-tab-bar">
+    <div class="nav-container">
+      <button class="nav-tab-btn active" data-tab="tab-final" id="tabBtnFinal">
+        <span>⚡ 직전 파이널 암기</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-speed" id="tabBtnSpeed">
+        <span>🚀 10분 벼락치기</span>
+        <span class="nav-badge-pill">치트키</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-timeline" id="tabBtnTimeline">
+        <span>📜 연표 타임라인</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-test" id="tabBtnTest">
+        <span>🎯 레벨 진단 테스트</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-tutor" id="tabBtnTutor">
+        <span>🤖 1:1 AI 역사 튜터</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-search" id="tabBtnSearch">
+        <span>🔍 스마트 통합 검색</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-notes" id="tabBtnNotes">
+        <span>📝 단권화 & 오답노트</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+
+    <!-- 1. 직전 파이널 암기 탭 -->
+    <section class="tab-pane active" id="tab-final">
+      <div class="hero-card">
+        <div class="hero-info">
+          <h2>⚡ 시대별 직전 파이널 암기 노트</h2>
+          <p>한능검 심화(1~3급) 기출 빅데이터를 기반으로 빈출 키워드와 두문자 암기 공식을 집대성했습니다. <strong>'블라인드 암기 모드'</strong>로 핵심 키워드를 가리고 자가 점검하세요!</p>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat-box">
+            <div class="num" id="statErasCount">7개</div>
+            <div class="label">시대별 총정리</div>
+          </div>
+          <div class="hero-stat-box">
+            <div class="num">100%</div>
+            <div class="label">사료 키워드 적중</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls & Filter Bar -->
+      <div class="controls-bar">
+        <div class="era-filters" id="eraFilterGroup">
+          <button class="filter-chip active" data-era="all">전체 시대</button>
+          <button class="filter-chip" data-era="prehistoric">선사·고조선</button>
+          <button class="filter-chip" data-era="ancient">삼국·가야</button>
+          <button class="filter-chip" data-era="north_south">남북국</button>
+          <button class="filter-chip" data-era="goryeo">고려</button>
+          <button class="filter-chip" data-era="joseon_early">조선 전기</button>
+          <button class="filter-chip" data-era="joseon_late">조선 후기</button>
+          <button class="filter-chip" data-era="modern_open">개항기</button>
+          <button class="filter-chip" data-era="colonial">일제 강점기</button>
+          <button class="filter-chip" data-era="contemporary">현대사</button>
+        </div>
+
+        <div class="feature-toggles">
+          <button class="blind-toggle-btn" id="btnToggleBlind">
+            <span>👁️ 블라인드 암기 모드 OFF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 킬러 비교 테마 섹션 -->
+      <div style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          🔥 <span>한능검 수험생 90%가 헷갈리는 킬러 비교 특강</span>
+        </h3>
+        <div id="killerThemesContainer" style="display: flex; flex-direction: column; gap: 1.25rem;"></div>
+      </div>
+
+      <!-- Era Cards List Container -->
+      <div class="era-sections-list" id="eraCardsContainer"></div>
+    </section>
+
+
+    <!-- 2. 10분 벼락치기 치트키 탭 -->
+    <section class="tab-pane" id="tab-speed">
+      <div class="hero-card">
+        <div class="hero-info">
+          <h2>🚀 시험 직전 10분 벼락치기 치트키</h2>
+          <p>사료에 이 단어가 나오면 정답은 무조건 이것! 시험장에 들어가기 직전 마지막 10분 동안 빠르게 스캔할 수 있는 초단기 암기 카드입니다.</p>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat-box">
+            <div class="num" id="speedCardCount">40개</div>
+            <div class="label">필살 키워드</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls-bar">
+        <div style="font-size: 0.9rem; color: var(--text-secondary);">
+          💡 카드를 클릭하면 정답을 가리거나 볼 수 있어 스피드 테스트가 가능합니다.
+        </div>
+        <button class="btn-secondary" id="btnToggleSpeedAnswers">전체 정답 토글</button>
+      </div>
+
+      <div class="speed-grid" id="speedGridContainer"></div>
+    </section>
+
+
+    <!-- 3. 연표 타임라인 탭 -->
+    <section class="tab-pane" id="tab-timeline">
+      <div class="hero-card">
+        <div class="hero-info">
+          <h2>📜 역사 연표 인터랙티브 타임라인</h2>
+          <p>한능검에서 가장 자주 출제되는 <strong>'사건의 전후 관계(가~나 시기 사이의 일)'</strong> 유형을 완벽히 정복할 수 있는 연도별 사건 흐름 타임라인입니다.</p>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat-box">
+            <div class="num" id="timelineTotalCount">0건</div>
+            <div class="label">핵심 사건</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls-bar">
+        <div class="era-filters" id="timelineEraFilters">
+          <button class="filter-chip active" data-era="all">전체 흐름</button>
+          <button class="filter-chip" data-era="ancient">삼국·가야</button>
+          <button class="filter-chip" data-era="north_south">남북국</button>
+          <button class="filter-chip" data-era="goryeo">고려</button>
+          <button class="filter-chip" data-era="joseon_early">조선 전기</button>
+          <button class="filter-chip" data-era="joseon_late">조선 후기</button>
+          <button class="filter-chip" data-era="modern_open">개항기</button>
+          <button class="filter-chip" data-era="colonial">일제 강점기</button>
+          <button class="filter-chip" data-era="contemporary">현대사</button>
+        </div>
+      </div>
+
+      <div class="timeline-wrapper">
+        <div class="timeline-line"></div>
+        <div id="timelineListContainer"></div>
+      </div>
+    </section>
+
+
+    <!-- 4. 실전 레벨 진단 테스트 탭 -->
+    <section class="tab-pane" id="tab-test">
+      <!-- Exam Initial Screen -->
+      <div id="examIntroView">
+        <div class="hero-card">
+          <div class="hero-info">
+            <h2>🎯 한국사능력검정시험 심화 실전 레벨 테스트</h2>
+            <p>실제 한능검 심화(1~3급) 기출 경향과 배점(2점·3점)을 철저히 반영한 진단 모의고사입니다. 시험 후 <strong>예상 취득 급수 판정</strong> 및 <strong>취약 시대 분석 리포트</strong>를 제공합니다.</p>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat-box">
+              <div class="num">20문항</div>
+              <div class="label">총 문항수</div>
+            </div>
+            <div class="hero-stat-box">
+              <div class="num">20분</div>
+              <div class="label">제한 시간</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2.5rem; text-align: center; max-width: 700px; margin: 0 auto;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">📝</div>
+          <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.75rem;">나의 현재 한능검 실력은 몇 급일까?</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.75rem;">
+            80점 이상 시 <strong>1급</strong>, 70점 이상 <strong>2급</strong>, 60점 이상 <strong>3급</strong> 자격이 주어집니다.<br>
+            사료 해석 능력과 시대별 취약 영역을 정밀하게 진단하고 맞춤형 공부 플랜을 받아보세요!
+          </p>
+          <button class="btn-primary" id="btnStartExam" style="max-width: 280px; margin: 0 auto; font-size: 1.1rem; padding: 1rem 2rem;">
+            진단 테스트 시작하기 (20문항)
+          </button>
+        </div>
+      </div>
+
+      <!-- Exam Active Testing Screen (Hidden initially) -->
+      <div id="examActiveView" style="display: none;">
+        <div class="exam-container">
+          <div class="exam-main">
+            <div class="exam-header">
+              <div class="exam-title-badge">
+                <span class="q-badge" id="examCurrentProgressBadge">문제 1 / 20</span>
+                <span class="q-score" id="examCurrentScoreBadge">3점</span>
+              </div>
+              <div class="exam-timer" id="examTimerDisplay">
+                <span>⏱️</span>
+                <span id="examTimerText">20:00</span>
+              </div>
+            </div>
+
+            <div class="question-card" id="examQuestionCard">
+              <div class="question-text" id="examQuestionText"></div>
+              <div class="question-passage" id="examQuestionPassage"></div>
+              <div class="options-list" id="examOptionsList"></div>
+            </div>
+
+            <div class="exam-nav-btns">
+              <button class="btn-secondary" id="btnExamPrev">이전 문제</button>
+              <button class="btn-secondary" id="btnExamNext">다음 문제</button>
+            </div>
+          </div>
+
+          <!-- OMR Panel Sidebar -->
+          <div class="omr-sidebar">
+            <div class="omr-header">
+              <span>OMR 답안지</span>
+              <span style="font-size: 0.8rem; color: var(--accent-amber);" id="omrAnsweredCount">0/20 완료</span>
+            </div>
+            <div class="omr-grid" id="omrGrid"></div>
+            <button class="btn-primary" id="btnExamSubmit">시험 종료 & 답안 제출</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exam Result Diagnostic Report (Hidden initially) -->
+      <div id="examResultView" style="display: none;"></div>
+    </section>
+
+
+    <!-- 5. 1:1 스마트 AI 역사 튜터 탭 -->
+    <section class="tab-pane" id="tab-tutor">
+      <div class="tutor-layout">
+        <!-- Sidebar with Tutor Info & Quick Questions -->
+        <div class="tutor-sidebar">
+          <div class="tutor-profile">
+            <div class="tutor-avatar">🎓</div>
+            <div>
+              <h3>역사박사 AI 튜터</h3>
+              <p><span>●</span> 실시간 1:1 문답 준비됨</p>
+            </div>
+          </div>
+
+          <div style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
+            한능검 공부 중 모르는 개념, 사료, 왕의 업적, 헷갈리는 조약이나 승려 차이를 무엇이든 물어보세요!
+          </div>
+
+          <div>
+            <div style="font-size: 0.82rem; font-weight: 700; color: var(--accent-amber); margin-bottom: 0.6rem;">
+              💡 자주 묻는 킬러 질문 추천
+            </div>
+            <div class="quick-prompts-list" id="tutorQuickPromptsList"></div>
+          </div>
+        </div>
+
+        <!-- Chat Container -->
+        <div class="chat-container">
+          <div class="chat-messages" id="chatMessages">
+            <div class="chat-bubble tutor">
+              <div class="bubble-header">🎓 역사박사 튜터</div>
+              안녕하세요! 한능검 1급 합격을 위한 1:1 개인 튜터입니다. 👏<br>
+              궁금한 역사 용어, 사건, 인물, 사료나 헷갈리는 비교 포인트를 자유롭게 질문해주세요. 즉각적이고 명쾌하게 출제 포인트와 암기 비법을 짚어드립니다!
+            </div>
+          </div>
+
+          <form class="chat-input-bar" id="tutorChatForm">
+            <input type="text" class="chat-input" id="tutorInput" placeholder="예: 의천과 지눌의 차이, 대동법이 왜 시행되었나요? 강화도 조약 불평등 조항..." autocomplete="off">
+            <button type="submit" class="btn-send" id="btnTutorSend">질문하기</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 6. 스마트 통합 검색 탭 -->
+    <section class="tab-pane" id="tab-search">
+      <div class="search-hero">
+        <h2>🔍 한능검 스마트 초성 통합 검색</h2>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">인물, 국왕, 사건, 조약, 문화재, 제도 명칭을 실시간으로 검색하세요.<br><strong>초성 검색('ㄱㅎㄷ', 'ㅈㄴ', 'ㄷㄷㅂ')</strong>도 완벽 지원합니다!</p>
+        <div class="search-input-box">
+          <span class="search-icon">🔎</span>
+          <input type="text" id="globalSearchInput" placeholder="검색어 또는 초성 입력 (예: 강화도, 지눌, 광종, 탕평비, ㄱㅎㄷ, ㅅㅁㅎ)...">
+        </div>
+      </div>
+
+      <div class="search-results-list" id="searchResultsContainer">
+        <div style="text-align: center; color: var(--text-muted); padding: 3rem;">
+          검색어를 입력하시면 관련된 시대별 요약, 연표 사건, 핵심 기출 포인트가 즉시 표시됩니다.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 7. 단권화 & 오답노트 탭 -->
+    <section class="tab-pane" id="tab-notes">
+      <div class="hero-card">
+        <div class="hero-info">
+          <h2>📝 나만의 단권화 & 오답 집중 노트</h2>
+          <p>레벨 테스트에서 틀린 문제와 벼락치기 중 북마크한 중요 개념들을 모아 한눈에 복습할 수 있는 나만의 단권화 수험장입니다.</p>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat-box">
+            <div class="num" id="noteBookmarkCount">0개</div>
+            <div class="label">저장된 항목</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls-bar">
+        <div style="font-weight: 700; font-size: 0.95rem;">저장된 오답 & 단권화 카드</div>
+        <button class="btn-secondary" id="btnClearNotes" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">기록 초기화</button>
+      </div>
+
+      <div id="notesContainer" style="display: flex; flex-direction: column; gap: 1rem;">
+        <div style="text-align: center; color: var(--text-muted); padding: 3rem; background: var(--bg-card); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          아직 저장된 오답이나 북마크가 없습니다. 레벨 테스트를 풀거나 파이널 암기에서 북마크를 해보세요!
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>© 한능검 1급 마스터 (PassHistory) | 국사편찬위원회 한국사능력검정시험 심화(고급) 완벽 대비 시스템</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
